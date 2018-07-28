@@ -2,14 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/it1"
-        android:title="add doc"></item>
+        android:title="About"/>
     <item android:id="@+id/it2"
-        android:title="scan doc">
-
-    </item>
-    <item
-        android:id="@+id/it3"
-        android:title="search doc">
-
-    </item>
+        android:title="Open document"/>
+    <item android:id="@+id/it3"
+        android:title="Search document"/>
 </menu>

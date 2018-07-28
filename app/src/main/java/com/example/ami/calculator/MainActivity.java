@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tv ;
+    TextView tv , exit ;
     EditText et1 ;
     ImageView iv ;
     Button b1;
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             d1.setContentView(R.layout.adddocdialog);
             image = d1.findViewById(R.id.iv1);
             button = d1.findViewById(R.id.db1);
+            exit = d1.findViewById(R.id.exit);
             d1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             d1.show();
 
@@ -100,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void b1(View view) {
+        if (view.getId() == R.id.db1)
+        {
+            Toast.makeText(getApplicationContext(),"Follow me clicked" , Toast.LENGTH_SHORT ).show();
+
+        }
+        if (view.getId() == R.id.exit)
+            d1.dismiss();
+
     }
 
 
