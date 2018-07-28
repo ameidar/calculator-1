@@ -1,10 +1,17 @@
 package com.example.ami.calculator;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     EditText et1 ;
     ImageView iv ;
     Button b1;
+    Dialog d1;
+    ImageView image;
+    Button button;
+
     public static final int PICK_IMAGE = 100;
     Uri imageUri ;
 
@@ -29,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         et1 = findViewById(R.id.et1);
         iv = findViewById(R.id.iv1);
         b1 = (Button)findViewById(R.id.b);
+        d1 = new Dialog(this);
+
 
         b1.setOnClickListener(new OnClickListener() {
             @Override
@@ -40,22 +53,53 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.it1)
+        {
+
+            Toast.makeText(  getApplicationContext() ,"add item " , Toast.LENGTH_SHORT).show();
+            d1.setContentView(R.layout.adddocdialog);
+            image = d1.findViewById(R.id.iv1);
+            button = d1.findViewById(R.id.db1);
+            d1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            d1.show();
+
+
+
+
+        }
+
+
+        //respond to menu item selection
+        return true;
+
+    }
+
     private void openGallery()
     {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
 
     }
-
     @Override
     protected void onActivityResult(int request, int resultCode,Intent data)
     {
         super.onActivityResult(request,resultCode,data);
         if (resultCode ==RESULT_OK && request == PICK_IMAGE)
             imageUri = data.getData();
-            iv.setImageURI(imageUri);
+        iv.setImageURI(imageUri);
 
 
+    }
+
+    public void b1(View view) {
     }
 
 

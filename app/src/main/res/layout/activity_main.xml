@@ -27,6 +27,8 @@
             android:layout_gravity="start"
             android:layout_marginLeft="5dp"
             android:padding="5dp"
+            android:background="@drawable/buttonstyle"
+            android:textColor="#ffff"
             android:text="Take Photo"/>
 
         <TextView
@@ -61,6 +63,8 @@
             android:padding="5dp"
             android:onClick="b1"
             android:id="@+id/b"
+            android:background="@drawable/buttonstyle"
+            android:textColor="#ffff"
             android:text="Take Photo"/>
         <TextView
             android:layout_width="100dp"
